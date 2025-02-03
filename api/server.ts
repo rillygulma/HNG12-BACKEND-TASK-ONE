@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import axios from "axios";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Enable CORS
 app.use(cors());
@@ -85,7 +85,5 @@ app.get("/api/classify-number", async (req: Request, res: Response): Promise<voi
     }
 });
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// Export the Express app as a handler for Vercel
+export default (req: VercelRequest, res: VercelResponse) => app(req as any, res as any);
