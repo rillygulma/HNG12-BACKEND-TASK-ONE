@@ -2,8 +2,9 @@
   "name": "hng-backend-task-1",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tsc && vercel dev",
-    "build": "tsc"
+    "dev": "tsc && node dist/server.js",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
